@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "988689399273-m6qqsh4ddq9prpekbrh63but4e2tljqq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.brew_crew",
+            "certificate_hash": "aa174a3d758357446af0e1467b4610612722afd3"
+          }
+        },
+        {
           "client_id": "988689399273-evbm5u5lh74vdhfmo44o32hb8s8cojm5.apps.googleusercontent.com",
           "client_type": 3
         }

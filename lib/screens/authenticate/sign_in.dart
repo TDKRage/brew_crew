@@ -2,6 +2,8 @@ import 'package:brew_crew/services/auth.dart';
 import 'package:brew_crew/shared/constants.dart';
 import 'package:brew_crew/shared/loading.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/fa_icon.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignIn extends StatefulWidget {
   final Function toggleView;
@@ -99,7 +101,22 @@ class _SignInState extends State<SignIn> {
                             color: Colors.red,
                             fontSize: 14,
                           ),
-                        )
+                        ),
+                        SizedBox(height: 20),
+                        RaisedButton.icon(
+                            onPressed: () async {
+                              setState(() {
+                                loading = true;
+                              });
+                              dynamic result = await _auth.signInWithGoogle();
+                              if (result == null) {
+                                setState(() {
+                                  loading = false;
+                                });
+                              }
+                            },
+                            icon: FaIcon(FontAwesomeIcons.googlePlus),
+                            label: Text('Sign In With Google'))
                       ],
                     ))));
   }
