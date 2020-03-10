@@ -3,14 +3,15 @@ import 'package:brew_crew/shared/constants.dart';
 import 'package:brew_crew/shared/loading.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
+class Register extends StatefulWidget {
   final Function toggleView;
-  SignIn({this.toggleView});
+
+  Register({this.toggleView});
   @override
-  _SignInState createState() => _SignInState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
   final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
@@ -27,14 +28,14 @@ class _SignInState extends State<SignIn> {
             appBar: AppBar(
               backgroundColor: Colors.brown[400],
               elevation: 0,
-              title: Text('Sign in'),
+              title: Text('Sign up to Bre Crew'),
               actions: <Widget>[
                 FlatButton.icon(
                     onPressed: () {
                       widget.toggleView();
                     },
                     icon: Icon(Icons.person),
-                    label: Text('Register'))
+                    label: Text('Sign In'))
               ],
             ),
             body: Container(
@@ -77,7 +78,7 @@ class _SignInState extends State<SignIn> {
                                 loading = true;
                               });
                               dynamic result = await _auth
-                                  .signInWithEmailPassword(email, password);
+                                  .registerWithEmailPassword(email, password);
                               if (result == null) {
                                 setState(() {
                                   error = 'Invalid Shit';
@@ -88,7 +89,7 @@ class _SignInState extends State<SignIn> {
                           },
                           color: Colors.pink[400],
                           child: Text(
-                            'Sign In',
+                            'Register',
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
@@ -102,5 +103,6 @@ class _SignInState extends State<SignIn> {
                         )
                       ],
                     ))));
+    ;
   }
 }

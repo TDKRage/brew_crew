@@ -8,8 +8,6 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<FirebaseUser>(context);
-    print('In Wrapper');
-    print(user);
     return user == null ? Authenticate() : Home();
   }
 }
